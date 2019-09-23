@@ -1,0 +1,140 @@
+@import '../../assets/styles/peers.css';
+@import '../../assets/styles/index.css';
+@import '../../assets/styles/fonts.css';
+@import '../../assets/styles/flex.css';
+
+@import '../../assets/styles/sidebar.css';
+@import '../../assets/styles/navbar.css';
+@import '../../assets/styles/header.css';
+@import '../../assets/styles/leftover.css';
+@import '../../assets/styles/utilities.css';
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
+  transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.custom-control-label::before {
+  background-color: #fff;
+  border: #adb5bd solid 1px;
+}
+
+.files-upload-section,
+.pleft-30 {
+  padding-left: 30px;
+}
+
+#auto-model-note {
+  height: 80px;
+}
+
+.modal.fade.show {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 80%;
+}
+
+.progress {
+  min-height: 30px;
+  margin-bottom: 0px;
+}
+
+.learning-model-section label {
+  white-space: nowrap;
+}
+
+.table {
+  margin-bottom: 0px;
+}
+
+.table thead th {
+  border-top: none;
+  background-color: #e9ecef !important;
+}
+
+.training-table-area {
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid #dee2e6;
+}
+
+.testing-table-area {
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid #dee2e6;
+  margin-top: 80px;
+}
+
+table.table-responsive {
+  display: table;
+  /* required for table-layout to be used (not normally necessary; included for completeness) */
+  table-layout: fixed;
+  /* this keeps your columns with fixed with exactly the right width */
+  width: 100%;
+  /* table must have width set for fixed layout to work as expected */
+  height: 100%;
+}
+
+tbody {
+  height: 300px;
+  overflow-y: scroll;
+  display: table-row-group;
+}
+
+th {
+  position: sticky;
+  top: -1px;
+}
+
+.progress-display-section {
+  min-height: 300px;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.hide {
+  display: none;
+  -webkit-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.collapsed {
+  border-bottom: none !important;
+}
+
+.collapsed .arrow {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg)
+}
+
+#learning-input-heading,
+#learning-output-heading {
+  cursor: pointer;
+}
+
+.expansion-disabled {
+  pointer-events: none;
+}
+
+.custom-file-input:disabled~.custom-file-label {
+  background-color: #eff0f1;
+  opacity: 0.5;
+}
+
+.custom-file-input:disabled~.custom-file-label::after {
+  background: #e9ecef;
+  color: #495057;
+}
+

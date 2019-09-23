@@ -198,7 +198,10 @@
 }
 
 .sidebar-menu li.dropdown.open>.dropdown-menu {
-    display: block
+    display: block;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .sidebar-menu li.dropdown.open>.dropdown-menu .dropdown-menu {

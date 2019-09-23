@@ -1,0 +1,26 @@
+
+<ng-template #defaultHeader>
+    <div class="default-header">
+      <ul>
+        <li>
+          <a href="/#/home">Home</a>
+        </li>
+        <li>
+          <a href="/#/sample1">Screen 1</a>
+        </li>
+        <li>
+          <a href="/#/sample2">Screen 2</a>
+        </li>
+        <li>
+          <a href="/#/sample3">Screen 3</a>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+  <ng-container #header>
+    <nav-header *ngIf="!hideDefaultHeader" [headerTemplate]="defaultHeader"></nav-header>
+  </ng-container>
+  
+  <ng-container #body>
+    <router-outlet></router-outlet>
+  </ng-container>

@@ -1,0 +1,283 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 order-md-1">
+      <div class="mb-3 shadow rounded">
+        <div class="p-2 bg-primary text-white rounded-top">
+          <h5>INPUT</h5>
+        </div>
+        <!-- LEARNING MODE AND DATASETS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            LEARNING MODE AND DATASETS
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="py-2  mx-3 border-bottom">
+              <h4 class="my-0 font-weight-normal">Select Learning Mode</h4>
+            </div>
+            <div class="card-body learning-mode-section row">
+              <div class="col-lg-12 col-sm-12 d-lg-flex d-sm-flex flex-sm-column">
+                <div class="col-lg-6 col-sm-12 pl-0 border-right">
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="supervised-learning" name="learning-mode"
+                      value="supervised">
+                    <label class="custom-control-label" for="supervised-learning">Supervised Learning</label>
+                  </div>
+                  <div class="files-upload-section">
+                    <div class="mt-2 mb-3">
+                      Select Training (labeled) Data File
+                      <div class="custom-file mt-1">
+                        <input type="file" class="custom-file-input" id="supervised-labeled-datafile">
+                        <label class="custom-file-label" for="supervised-labeled-datafile">Choose file</label>
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      Select Unlabeled Data File
+                      <div class="custom-file mt-1">
+                        <input type="file" class="custom-file-input" id="supervised-unlabeled-datafile">
+                        <label class="custom-file-label" for="supervised-unlabeled-datafile">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="unsupervised-learning" name="learning-mode"
+                      value="unsupervised">
+                    <label class="custom-control-label" for="unsupervised-learning">Unsupervised Learning</label>
+                  </div>
+                  <div class="files-upload-section">
+                    <div class="mt-2 mb-3">
+                      Select Data File
+                      <div class="custom-file mt-1">
+                        <input type="file" class="custom-file-input" id="unsupervised-datafile">
+                        <label class="custom-file-label" for="unsupervised-datafile">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- LEARNING MODE AND DATASETS END -->
+
+        <!-- MACHINE LEARNING MODEL START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            MACHINE LEARNING MODEL
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="py-2  mx-3 border-bottom">
+              <h4 class="my-0 font-weight-normal">Select Learning Model</h4>
+            </div>
+            <div class="card-body learning-model-section row">
+              <div class="col-12 d-flex">
+                <div class="col-6 pl-0 border-right">
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="custom-learning-model" name="learning-model"
+                      value="custom">
+                    <label class="custom-control-label" for="custom-learning-model">Use Specific Model (Select
+                      Model)</label>
+                  </div>
+                  <div class="form-group select-models-section">
+                    <select class="form-control model-dropdown" id="learning-model">
+                      <option selected>Select</option>
+                      <option value="Multinomial Naive Bayes">Multinomial Naive Bayes</option>
+                      <option value="Logistics Regression">Logistics Regression</option>
+                    </select>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="automatic-learning-model" name="learning-model"
+                      value="automatic">
+                    <label class="custom-control-label" for="automatic-learning-model">
+                      Automatically (Best model for training)
+                    </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group select-model-parameters">
+                    <label for="model-parameters">Optimize model parameters for </label>
+                    <select class="form-control model-dropdown" id="model-parameters">
+                      <option selected>Accuracy(default)</option>
+                      <option value="Multinomial Naive Bayes">Multinomial Naive Bayes</option>
+                      <option value="Logistics Regression">Logistics Regression</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="automatic-model-note">
+                  <small id="stop-words-help" class="form-text text-muted">
+                    **Note: The SVMs take a long time for training, so the automatic mode compares only 4 models:
+                    (1)Multinomial Naive Bayes, (2)Logistics Regression, (3)One vs Rest(Multinomial Naive Bayes), and
+                    (4)One vs Rest(Logistics Regression).
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MACHINE LEARNING MODEL END -->
+
+
+        <!-- ADDITIONAL STOP WORDS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            ADDITIONAL STOP WORDS
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="card-body py-2 row">
+              <div class="col-12">
+                <label for="additional-stop-words">Enter additional stop words below:</label>
+                <textarea class="form-control" id="additional-stop-words" rows="3"></textarea>
+                <small id="stop-words-help" class="form-text text-muted">**Note: The stop words (or terms) must be
+                  separated by commas(,).</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ADDITIONAL STOP WORDS END -->
+
+        <!-- SUBMIT BUTTONS START -->
+        <div class="row pb-3 pr-3 ml-2">
+          <div class="col-12 d-flex justify-content-between pr-2 pl-0">
+            <div class="col-6 pl-0">
+              <button type="button" class="btn btn-primary">RUN DOCUMENT CLASSIFIER</button>
+            </div>
+            <div class="col-6 pr-0 d-flex justify-content-end">
+              <button type="button" class="btn btn-primary mr-2">RESET</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">SAVE
+                MODEL</button>
+            </div>
+          </div>
+        </div>
+        <!-- SUBMIT BUTTONS END -->
+      </div>
+    </div>
+    <div class="col-md-4 order-md-2 mb-3">
+      <div class="mb-3 shadow rounded output-results">
+        <div class="p-2 bg-primary text-white rounded-top ">
+          <h5>OUTPUT AND ANALYSIS</h5>
+        </div>
+
+        <!-- DATA STATISTICS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            DATA STATISTICS
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="py-2  mx-3 border-bottom">
+              <h4 class="my-0 font-weight-normal">Training Data</h4>
+            </div>
+            <div class="card-body training-data-section row pt-2">
+              <div class="col-12">
+                <div class="form-group mb-2">
+                  <label for="training-examples"># Training Examples</label>
+                  <input type="text" class="form-control" id="training-examples">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="classes"># Classes</label>
+                  <input type="text" class="form-control" id="classes">
+                </div>
+              </div>
+              <div class="col-12">
+                <table class="table statistics-table">
+                  <thead>
+                    <tr>
+                      <th>Class</th>
+                      <th>#Examples</th>
+                      <th>Class %</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>data analysis</td>
+                      <td>60</td>
+                      <td>20%</td>
+                    </tr>
+                    <tr>
+                      <td>self care service</td>
+                      <td>33</td>
+                      <td>20%</td>
+                    </tr>
+                    <tr>
+                      <td>security</td>
+                      <td>49</td>
+                      <td>20%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DATA STATISTICS END -->
+
+        <!-- MODEL SELECTION START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            MODEL SELECTION
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="card-body model-selection-section row pt-2">
+              <div class="col-12">
+                <div class="form-group mb-2">
+                  <label for="selected-model">Selected Model</label>
+                  <input type="text" class="form-control" id="selected-model">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="hyper-parameter">Hyper-parameter</label>
+                  <input type="text" class="form-control" id="hyper-parameter">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MODEL SELECTION END -->
+
+        <!-- PROGRESS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            PROGRESS
+          </h5>
+        </div>
+        <div class="card-deck h-100 ml-0">
+          <div class="card mx-4 mb-4 border border-primary progress-card">
+
+          </div>
+        </div>
+        <!-- PROGRESS END -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

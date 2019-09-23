@@ -1,0 +1,282 @@
+<div class="sample-two"> Hello SampleTwoComponent! </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-3 ">
+      <div class="mb-3 shadow rounded output-results">
+        <div class="p-2 bg-primary text-white rounded-top">
+          <h5>OUTPUT AND ANALYSIS</h5>
+        </div>
+
+        <!-- DATA STATISTICS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            DATA STATISTICS
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="py-2  mx-3 border-bottom">
+              <h4 class="my-0 font-weight-normal">Predictions on Testing Data</h4>
+            </div>
+            <div class="card-body testing-data-section row pt-2">
+              <div class="col-12">
+                <div class="form-group mb-2">
+                  <label for="testing-examples"># Testing Examples</label>
+                  <input type="text" class="form-control" id="testing-examples">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="others"># Others</label>
+                  <input type="text" class="form-control" id="others">
+                </div>
+              </div>
+              <div class="col-12">
+                <table class="table statistics-table">
+                  <thead>
+                    <tr>
+                      <th>Class</th>
+                      <th>#Examples</th>
+                      <th>Class %</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>data analysis</td>
+                      <td>60</td>
+                      <td>20%</td>
+                    </tr>
+                    <tr>
+                      <td>self care service</td>
+                      <td>33</td>
+                      <td>20%</td>
+                    </tr>
+                    <tr>
+                      <td>security</td>
+                      <td>49</td>
+                      <td>20%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DATA STATISTICS END -->
+
+        <!-- PROGRESS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            PROGRESS
+          </h5>
+        </div>
+        <div class="card-deck ml-0 h-100">
+          <div class="card mx-4 mb-4 border border-primary progress-card">
+
+          </div>
+        </div>
+        <!-- PROGRESS END -->
+
+      </div>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <div class="mb-3 shadow rounded">
+        <div class="p-2 bg-primary text-white rounded-top">
+          <h5>INPUT</h5>
+        </div>
+
+        <!-- AVAILABLE PROJECTS AND MODELS START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            AVAILABLE PROJECTS AND MODELS
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="card-body available-projects-models-section row">
+              <div class="col-12 d-flex">
+                <div class="col-6 pl-0 border-right">
+                  <div class="form-group select-projects">
+                    <label for="projects">Select an existing project </label>
+                    <select class="form-control model-dropdown" id="projects">
+                      <option selected>Select</option>
+                      <option value="Multinomial Naive Bayes">Multinomial Naive Bayes</option>
+                      <option value="Logistics Regression">Logistics Regression</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group select-models">
+                    <label for="models">Existing model(s) for selected project </label>
+                    <select class="form-control model-dropdown" id="models">
+                      <option selected>Accuracy(default)</option>
+                      <option value="Multinomial Naive Bayes">Multinomial Naive Bayes</option>
+                      <option value="Logistics Regression">Logistics Regression</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="additional-stop-words">Selected project's description</label>
+                <textarea class="form-control" id="additional-stop-words" rows="3"></textarea>
+              </div>
+              <div class="col-12 d-flex mt-3">
+                <div class="col-6 pl-0 border-right">
+                  <div class="py-2  mr-3 border-bottom">
+                    <h4 class="my-0 font-weight-normal">Training Data Stats</h4>
+                  </div>
+                  <div class="card-body training-data-section row pt-2">
+                    <div class="col-12 pl-0">
+                      <div class="form-group mb-2">
+                        <label for="training-examples">Training Examples</label>
+                        <input type="text" class="form-control" id="training-examples">
+                      </div>
+                    </div>
+                    <div class="col-12 pl-0">
+                      <div class="form-group">
+                        <label for="classes">Classes</label>
+                        <input type="text" class="form-control" id="classes">
+                      </div>
+                    </div>
+                    <div class="col-12 pl-0">
+                      <table class="table statistics-table">
+                        <thead>
+                          <tr>
+                            <th>Class</th>
+                            <th>#Examples</th>
+                            <th>Class %</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>data analysis</td>
+                            <td>60</td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>self care service</td>
+                            <td>33</td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>security</td>
+                            <td>49</td>
+                            <td>20%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 pr-0">
+                  <div class="py-2 border-bottom">
+                    <h4 class="my-0 font-weight-normal">Model Performance</h4>
+                  </div>
+                  <div class="card-body training-data-section row pt-3 pr-0">
+                    <div class="col-12 pl-0">
+                      <h5>5 fold Cross Validation Performance</h5>
+                    </div>
+                    <div class="col-12 pl-0">
+                      <table class="table table-borderless validations-table">
+                        <tbody>
+                          <tr>
+                            <td>data analysis</td>
+                            <td>
+                              <input type="text" class="form-control calc-input" value="47.87%">
+                            </td>
+                            <td>+/-</td>
+                            <td>
+                              <input type="text" class="form-control calc-input" value="47.87%">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>self care service</td>
+                            <td>
+                              <input type="text" class="form-control calc-input" value="47.87%">
+                            </td>
+                            <td>+/-</td>
+                            <td>
+                              <input type="text" class="form-control calc-input" value="47.87%">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>security</td>
+                            <td>
+                              <input type="text" class="form-control calc-input" value="47.87%">
+                            </td>
+                            <td>+/-</td>
+                            <td>
+                              <input type="text" class="form-control calc-input" value="47.87%">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- AVAILABLE PROJECTS AND MODELS END -->
+
+        <!-- UNLABELED DATA FILE START -->
+        <div class="pl-3 py-2 my-2 ml-2 text-white rounded-pill bg-sub-header">
+          <h5>
+            UNLABELED DATA FILE
+          </h5>
+        </div>
+        <div class="card-deck ml-0">
+          <div class="card mx-4 mb-4 border border-primary">
+            <div class="card-body learning-mode-section row py-2">
+              <div class="col-12 d-flex">
+                <div class="col-6 pl-0 border-right">
+                  <div class="mt-2 mb-3">
+                    Select unlabeled data file
+                    <div class="custom-file mt-1">
+                      <input type="file" class="custom-file-input" id="unsupervised-datafile">
+                      <label class="custom-file-label" for="unsupervised-datafile">Choose file</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- UNLABELED DATA FILE END -->
+
+        <!-- SUBMIT BUTTONS START -->
+        <div class="row pb-3 pr-3 ml-2">
+          <div class="col-12 d-flex justify-content-between pr-2 pl-0">
+            <div class="col-6 pl-0">
+              <button type="button" class="btn btn-primary">RUN DOCUMENT CLASSIFIER</button>
+            </div>
+            <div class="col-6 pr-0 d-flex justify-content-end">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">REFRESH DATA</button>
+            </div>
+          </div>
+        </div>
+        <!-- SUBMIT BUTTONS END -->
+      </div>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

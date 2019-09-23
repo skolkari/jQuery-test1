@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular5Seed</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+
+  <script>
+    window.addEventListener('load', function load() {
+      const loader = document.getElementById('loader');
+      setTimeout(function () {
+        loader.classList.add('fadeOut');
+      }, 300);
+    });
+
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      const scrollables = $('.scrollable');
+      if (scrollables.length > 0) {
+        scrollables.each((index, el) => {
+          new PerfectScrollbar(el);
+        });
+      }
+
+      $('.search-toggle').on('click', e => {
+        $('.search-box, .search-input').toggleClass('active');
+        $('.search-input input').focus();
+        e.preventDefault();
+      });
+      // Sidebar links
+      $('.sidebar .sidebar-menu li a').on('click', function () {
+        $(this).parent().toggleClass("open", 1000, "slow");
+
+      });
+
+      // Sidebar Activity Class
+      const sidebarLinks = $('.sidebar').find('.sidebar-link');
+
+      sidebarLinks
+        .each((index, el) => {
+          $(el).removeClass('active');
+        })
+        .filter(function () {
+          const href = $(this).attr('href');
+          const pattern = href[0] === '/' ? href.substr(1) : href;
+          return pattern === (window.location.pathname).substr(1);
+        })
+        .addClass('active');
+
+      // ٍSidebar Toggle
+      $('.sidebar-toggle').on('click', e => {
+        $('.app').toggleClass('is-collapsed');
+        e.preventDefault();
+      });
+
+      $('#learning-input-heading').click(() => {
+        $('#learning-input-heading').toggleClass('collapsed');
+        $('#learning-input-body').toggleClass('hide');
+      });
+
+      $('#learning-output-heading').click(() => {
+        $('#learning-output-heading').toggleClass('collapsed');
+        $('#learning-output-body').toggleClass('hide');
+      });
+
+      $('#run-document-classifier').click(() => {
+        $("#myModal").modal("show");
+        setTimeout(() => {
+          $('#learning-input-heading').toggleClass('collapsed');
+          $('#learning-input-body').toggleClass('hide');
+          $('#learning-output-heading').removeClass('expansion-disabled');
+          $('#learning-output-heading').toggleClass('collapsed');
+          $('#learning-output-body').toggleClass('hide');
+          $("#myModal").modal("hide");
+        }, 3000);
+      });
+
+      $("input[name='learning-mode']").click(() => {
+        var selectedValue = $("input[name='learning-mode']:checked").val();
+        console.log('selectedValue => ', selectedValue);
+        if (selectedValue == 'supervised') {
+          $('#supervised-labeled-datafile').removeAttr('disabled');
+          $('#supervised-unlabeled-datafile').removeAttr('disabled');
+          $('#unsupervised-datafile').attr('disabled', true);
+          $('#unsupervised-datafile').next('.custom-file-label').removeClass("selected").html('Choose file');
+          $('#unsupervised-datafile').val('');
+        } else if (selectedValue == 'unsupervised') {
+          $('#supervised-labeled-datafile').attr('disabled', true);
+          $('#supervised-unlabeled-datafile').attr('disabled', true);
+          $('#unsupervised-datafile').removeAttr('disabled');
+          $('#supervised-labeled-datafile').next('.custom-file-label').removeClass("selected").html(
+            'Choose file');
+          $('#supervised-unlabeled-datafile').next('.custom-file-label').removeClass("selected").html(
+            'Choose file');
+          $('#supervised-labeled-datafile').val('');
+          $('#supervised-unlabeled-datafile').val('');
+        }
+      });
+
+      $("input[name='learning-model']").click(() => {
+        var selectedValue = $("input[name='learning-model']:checked").val();
+        console.log('selectedValue => ', selectedValue);
+        if (selectedValue == 'custom') {
+          $('#model').removeAttr('disabled');
+        } else if (selectedValue == 'automatic') {
+          $('#model').attr('disabled', true);
+          $('#model').val('');
+        }
+      });
+
+      $('#model').change(function () {
+        console.log($(this).find("option:selected").attr('value'));
+      });
+
+      $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+      });
+
+    });
+
+  </script>
+</head>
+
+<body style="font-size: 14px;">
+  <app-root></app-root>
+</body>
+
+</html>

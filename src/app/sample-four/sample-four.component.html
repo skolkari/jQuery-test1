@@ -1,0 +1,635 @@
+<!-- input section start -->
+<div class="row gap-20 mb-3 shadow rounded">
+  <div class="col-md-12">
+    <div id="learning-input-heading" class="col-md-12 col-sm-12 py-3 border-bottom d-flex ai-c jc-sb">
+      <h4 class="mb-0 text-uppercase">Input</h4>
+      <span class="arrow">
+        <i class="ti-angle-down"></i>
+      </span>
+    </div>
+    <div id="learning-input-body" class="row m-0 w-100">
+      <div class="col-md-12 col-sm-12 py-3 d-flex flex-nowrap">
+        <div class="row">
+          <div class="col-md-6 p-2 w-100">
+            <div class="bd bgc-white p-10  h-100">
+              <div class="w-100 mb-10 border-bottom">
+                <h5 class="text-uppercase">
+                  Learning mode and datasets
+                </h5>
+              </div>
+              <div class="w-100">
+                <div class="row m-0 peers ai-sb flex-column flex-nowrap">
+                  <div class="col-md-12 col-sm-12 pl-1 py-2">
+                    <h5 class="my-0">Select Learning Mode</h5>
+                  </div>
+                  <div class="col-md-12 col-sm-12 pl-0 d-md-flex d-sm-flex flex-md-column flex-sm-column">
+                    <div class="radio radio-circle radio-info peers ai-c pl-0 mb-0">
+                      <input type="radio" class="peer" id="supervised-learning" name="learning-mode" value="supervised">
+                      <label for="supervised-learning" class="peers peer-greed">
+                        <span class="peer peer-greed">Supervised Learning</span>
+                      </label>
+                    </div>
+                    <div class="files-upload-section">
+                      <div class=" mt-2 mb-3">
+                        <label>Select Training (labeled) Data File</label>
+                        <div class="custom-file">
+                          <input type="file" disabled class="custom-file-input" id="supervised-labeled-datafile">
+                          <label class="custom-file-label" for="supervised-labeled-datafile">Choose file</label>
+                        </div>
+                      </div>
+                      <div class=" mt-2">
+                        <label>Unlabeled Data File</label>
+                        <div class="custom-file">
+                          <input type="file" disabled class="custom-file-input" id="supervised-unlabeled-datafile">
+                          <label class="custom-file-label" for="supervised-unlabeled-datafile">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="radio radio-circle radio-info peers ai-c pl-0 mb-0 mt-3">
+                      <input type="radio" id="unsupervised-learning" name="learning-mode" value="unsupervised"
+                        class="peer">
+                      <label for="unsupervised-learning" class="peers peer-greed">
+                        <span class="peer peer-greed">Unsupervised Learning</span>
+                      </label>
+                    </div>
+                    <div class="files-upload-section">
+                      <div class="mt-2 mb-3">
+                        <label>Select Data File</label>
+                        <div class="custom-file">
+                          <input type="file" disabled class="custom-file-input" id="unsupervised-datafile">
+                          <label class="custom-file-label" for="unsupervised-datafile">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 p-2 w-100">
+            <div class="bd bgc-white p-10 h-100">
+              <div class="w-100 mb-10 border-bottom">
+                <h5 class="text-uppercase">
+                  Machine learning model
+                </h5>
+              </div>
+              <div class="w-100">
+                <div class="row m-0 peers ai-sb flex-column flex-nowrap learning-model-section">
+                  <div class="col-md-12 col-sm-12 pl-1 py-2">
+                    <h5 class="my-0">Select Learning Model</h5>
+                  </div>
+                  <div class="col-md-12 col-sm-12 pl-0 d-md-flex d-sm-flex flex-md-column flex-sm-column">
+                    <div class="radio radio-circle radio-info peers ai-c pl-0 mb-0">
+                      <input type="radio" class="peer" id="custom-learning-model" name="learning-model" value="custom">
+                      <label for="custom-learning-model" class="peers peer-greed">
+                        <span class="peer peer-greed">Use Specific Model (Select Model)</span>
+                      </label>
+                    </div>
+                    <div class="files-upload-section">
+                      <div class=" mt-2 mb-3">
+                        <label for="model">Select Model</label>
+                        <select disabled id="model" class="custom-select">
+                          <option value="" selected>Choose...</option>
+                          <option value="Multinomial Naive Bayes">Multinomial Naive Bayes</option>
+                          <option value="Logistics Regression">Logistics Regression</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="radio radio-circle radio-info peers ai-c pl-0 mb-0">
+                      <input type="radio" class="peer" id="auto-learning-model" name="learning-model" value="automatic">
+                      <label for="auto-learning-model" class="peers peer-greed">
+                        <span class="peer peer-greed">Automatically (Best model for training)</span>
+                      </label>
+                      <small id="auto-model-note" class="form-text text-muted pleft-30">
+                        **Note: The SVMs take a long time for training, so the automatic mode compares only 4 models:
+                        (1)Multinomial Naive Bayes, (2)Logistics Regression, (3)One vs Rest(Multinomial Naive Bayes),
+                        and
+                        (4)One vs Rest(Logistics Regression).
+                      </small>
+                    </div>
+                    <div class="mt-1 mb-3 pleft-30">
+                      <label for="model-parameters">Optimize model parameters for</label>
+                      <select id="model-parameters" class="form-control custom-select">
+                        <option selected>Accuracy(default)</option>
+                        <option value="Multinomial Naive Bayes">Multinomial Naive Bayes</option>
+                        <option value="Logistics Regression">Logistics Regression</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 px-2 py-3">
+        <div class="bd bgc-white p-10">
+          <div class="w-100 mb-10 border-bottom">
+            <h5 class="text-uppercase">
+              Additional stop words
+            </h5>
+          </div>
+          <div class="w-100">
+            <div class="row peers ai-sb flex-column flex-nowrap">
+              <div class="col-md-12 col-sm-12 d-md-flex d-sm-flex flex-md-column flex-sm-column px-0 py-2">
+                <div class=" mt-2 mb-3 pl-4">
+                  <label for="additional-words">Enter additional stop words below</label>
+                  <textarea name="additional-words" class="form-control" rows="5" style="resize: none;"></textarea>
+                  <small id="stop-words-help" class="form-text text-muted">**Note: The stop words (or terms) must
+                    be
+                    separated by commas(,).</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 py-3 d-flex justify-content-between pr-2 pl-1">
+        <div class="col-6 pl-0">
+          <button type="button" id="run-document-classifier" class="btn btn-primary" data-toggle="modal" data-target="#myModal">RUN DOCUMENT
+            CLASSIFIER</button>
+        </div>
+        <div class="col-6 pr-0 d-flex justify-content-end">
+          <button type="button" class="btn btn-primary mr-2">RESET</button>
+          <button type="button" class="btn btn-primary">SAVE
+            MODEL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- input section end -->
+
+<!-- output section start -->
+
+<div class="row gap-20 my-3 shadow rounded">
+  <div class="col-md-12">
+    <div id="learning-output-heading" class="col-md-12 col-sm-12 py-3 border-bottom d-flex ai-c jc-sb collapsed expansion-disabled">
+      <h4 class="mb-0 text-uppercase">Ouput and analysis</h4>
+      <span class="arrow">
+        <i class="ti-angle-down"></i>
+      </span>
+    </div>
+    <div id="learning-output-body" class="row m-0 w-100 hide">
+      <div class="col-md-12 col-sm-12 p-2 py-3 d-flex flex-nowrap">
+        <div class="row bd m-0">
+          <div class="bgc-white col-md-12 col-sm-12 py-3 border-bottom">
+            <h5 class="mb-0 text-uppercase">data statistics</h5>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6 p-2 w-100">
+                <div class="bd bgc-white p-10  h-100">
+                  <div class="w-100 mb-10 border-bottom">
+                    <h5 class="text-uppercase">
+                      Training data
+                    </h5>
+                  </div>
+                  <div class="w-100 mt-3">
+                    <div class="row m-0 peers ai-sb flex-column flex-nowrap">
+                      <div class="col-md-12 pl-0">
+                        <div class="form-group mb-2">
+                          <label for="training-examples"># Training Examples</label>
+                          <input type="text" class="form-control" id="training-examples">
+                        </div>
+                      </div>
+                      <div class="col-md-12 pl-0">
+                        <div class="form-group">
+                          <label for="classes"># Classes</label>
+                          <input type="text" class="form-control" id="classes">
+                        </div>
+                      </div>
+                      <div class="col-md-12 px-0 training-table-area">
+                        <table class="table table-responsive training-data-table">
+                          <thead>
+                            <tr>
+                              <th>Class</th>
+                              <th>#Examples</th>
+                              <th>Class %</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>data analysis</td>
+                              <td>60</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>self care service</td>
+                              <td>33</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 p-2 w-100">
+                <div class="bd bgc-white p-10 h-100">
+                  <div class="w-100 mb-10 border-bottom">
+                    <h5 class="text-uppercase">
+                      predictions on testing data
+                    </h5>
+                  </div>
+                  <div class="w-100 mt-3">
+                    <div class="row m-0 peers ai-sb flex-column flex-nowrap learning-model-section">
+                      <div class="col-md-12 pl-0">
+                        <div class="form-group mb-2">
+                          <label for="testing-examples"># Testing Examples</label>
+                          <input type="text" class="form-control" id="testing-examples">
+                        </div>
+                      </div>
+                      <div class="col-md-12 px-0 testing-table-area">
+                        <table class="table table-responsive testing-data-table">
+                          <thead>
+                            <tr>
+                              <th>Class</th>
+                              <th>#Examples</th>
+                              <th>Class %</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>data analysis</td>
+                              <td>60</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>self care service</td>
+                              <td>33</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+                            <tr>
+                              <td>security</td>
+                              <td>49</td>
+                              <td>20%</td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 py-3 px-0 d-flex flex-nowrap">
+        <div class="row w-100 m-0">
+          <div class="col-md-6 p-2 w-100">
+            <div class="bd bgc-white p-10  h-100">
+              <div class="w-100 mb-10 border-bottom">
+                <h5 class="text-uppercase">
+                  model selection
+                </h5>
+              </div>
+              <div class="w-100 mt-3">
+                <div class="row m-0 peers ai-sb flex-column flex-nowrap">
+                  <div class="col-md-12 pl-0">
+                    <div class="form-group mb-2">
+                      <label for="selected-model">Selected Model</label>
+                      <input type="text" class="form-control" id="selected-model">
+                    </div>
+                  </div>
+                  <div class="col-md-12 pl-0">
+                    <div class="form-group">
+                      <label for="hyper-parameter">Hyper-parameter</label>
+                      <input type="text" class="form-control" id="hyper-parameter">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 p-2 w-100">
+            <div class="bd bgc-white p-10 h-100">
+              <div class="w-100 mb-10 border-bottom">
+                <h5 class="text-uppercase">
+                  Model evaluation
+                </h5>
+              </div>
+              <div class="w-100">
+                <div class="row m-0 peers ai-sb flex-column flex-nowrap w-100">
+                  <div class="col-md-12 col-sm-12 pl-1 py-2">
+                    <h5 class="my-0">5 fold Cross Validation Performance</h5>
+                  </div>
+                  <div class="col-md-12 col-sm-12 pl-0 d-md-flex d-sm-flex flex-md-column flex-sm-column w-100">
+                    <table class="table table-borderless validations-table">
+                      <tbody>
+                        <tr>
+                          <td>data analysis</td>
+                          <td>
+                            <input type="text" class="form-control calc-input" value="47.87%">
+                          </td>
+                          <td>+/-</td>
+                          <td>
+                            <input type="text" class="form-control calc-input" value="47.87%">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>self care service</td>
+                          <td>
+                            <input type="text" class="form-control calc-input" value="47.87%">
+                          </td>
+                          <td>+/-</td>
+                          <td>
+                            <input type="text" class="form-control calc-input" value="47.87%">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>security</td>
+                          <td>
+                            <input type="text" class="form-control calc-input" value="47.87%">
+                          </td>
+                          <td>+/-</td>
+                          <td>
+                            <input type="text" class="form-control calc-input" value="47.87%">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 px-2 py-3">
+        <div class="bd bgc-white p-10">
+          <div class="w-100 mb-10 border-bottom">
+            <h5 class="text-uppercase">
+              progress
+            </h5>
+          </div>
+          <div class="w-100">
+            <div class="row peers ai-sb flex-column flex-nowrap">
+              <div class="col-md-12 col-sm-12 d-md-flex d-sm-flex flex-md-column flex-sm-column py-2">
+                <div id="progress-display-section" class="border mt-2 mb-3 pl-4 progress-display-section">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- output section end -->
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

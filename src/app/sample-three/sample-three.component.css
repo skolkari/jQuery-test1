@@ -1,0 +1,132 @@
+h5 {
+  font-size: 1.1rem;
+}
+
+.bg-sub-header {
+  background: linear-gradient(90deg, rgba(0, 123, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+}
+
+.files-upload-section {
+  margin: 0px 0px 10px 25px;
+}
+
+.select-models-section {
+  margin: 10px 0px 10px 25px;
+}
+
+.select-model-parameters {
+  margin: 0px 0px 10px 25px;
+}
+
+.automatic-model-note {
+  margin-top: 15px;
+}
+
+.stop-word-note {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.custom-file-label {
+  border: 1px solid rgba(0, 123, 255, 1);
+}
+
+/* .model-dropdown {
+  border: 1px solid rgba(0, 123, 255, 1);
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(0, 123, 255, 1) 50%),
+    linear-gradient(135deg, rgba(0, 123, 255, 1) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+} */
+
+.custom-file-input:disabled~.custom-file-label {
+  border: 1px solid #ced4da;
+}
+
+.custom-file-label::after {
+  background: rgba(0, 123, 255, 1);
+  color: white;
+}
+
+.custom-file-input:disabled~.custom-file-label::after {
+  background: #e9ecef;
+  color: #495057;
+}
+
+input[type="radio"]:checked+label {
+  font-weight: bold;
+}
+
+ol li {
+  display: list-item;
+  list-style: unset;
+}
+
+.fade.show {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 80%;
+}
+
+.statistics-table {
+  border: 1px solid #dee2e6;
+  margin-bottom: 0px;
+}
+
+.statistics-table thead th {
+  border: none;
+}
+
+.statistics-table td,
+.statistics-table th {
+  padding: 5px;
+}
+
+.progress-card {
+  min-height: 160px;
+}
+
+.calc-input {
+  width: 90%;
+}
+
+.validations-table tr td {
+  padding: 5px 0px;
+  vertical-align: middle;
+}
+
+.validations-table tr td:first-child {
+  padding-left: 0px;
+  vertical-align: middle;
+}
+
+.validations-table tr td:last-child {
+  padding-right: 0px;
+}
+
+.validations-table tr td:last-child .calc-input {
+  float: right;
+  padding-right: 0px;
+}
+
+.output-results {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
